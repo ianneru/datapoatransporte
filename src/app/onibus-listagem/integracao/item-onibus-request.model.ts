@@ -1,3 +1,3 @@
 export class ItemOnibusRequestModel {
-    constructor(public nome?: string) {}
+    constructor(public nome?: string) {} 
 }
