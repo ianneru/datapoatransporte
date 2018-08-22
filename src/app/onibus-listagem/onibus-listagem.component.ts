@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ItemOnibusModel } from './model/item-onibus.model';
 import { OnibusListagemService } from './service/onibus-listagem.service';
 import { ItemOnibusRequestModel } from './integracao/item-onibus-request.model';
-import { ItemOnibusResponseModel } from './integracao/Item-onibus-response.model';
 @Component({
   selector: 'app-onibus-listagem',
   templateUrl: './onibus-listagem.component.html',
