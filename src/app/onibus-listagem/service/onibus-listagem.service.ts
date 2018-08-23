@@ -4,7 +4,6 @@ import 'rxjs/add/operator/switchMap';
 import { Builder } from 'builder-pattern';
 
 import { ItemOnibusModel } from '../model/item-onibus.model';
-import { ItemOnibusRequestModel } from '../integracao/item-onibus-request.model';
 import { ItemOnibusResponseModel } from '../integracao/item-onibus-response.model';
 import { OnibusListagemRestService } from './onibus-listagem-rest.service';
 
@@ -15,9 +14,15 @@ export class OnibusListagemService {
         private onibusListamgeRestService: OnibusListagemRestService
     ) {}
 
-    public buscarOnibusListagem(itemOnibusRequest: ItemOnibusRequestModel) : Observable<ItemOnibusModel[]>{
+    public buscarOnibusListagem(itemOnibusRequest: string) : Observable<ItemOnibusModel[]>{
+        debugger;
         return this.onibusListamgeRestService.obterListaOnibus(itemOnibusRequest)
-                .switchMap( res => of(this.mapperToItemOnibusModel(res)))            
+            //    .switchMap( res => of(this.mapperToItemOnibusModel(res)))            
+            .switchMap( res => {
+                console.log(res);
+                return of(this.mapperToItemOnibusModel(res));
+            });
+                          
     }
 
     public mapperToItemOnibusModel(objeto: ItemOnibusResponseModel[]): ItemOnibusModel[]{

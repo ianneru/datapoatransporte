@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemOnibusModel } from './model/item-onibus.model'; 
 import { OnibusListagemService } from './service/onibus-listagem.service';
-import { ItemOnibusRequestModel } from './integracao/item-onibus-request.model';
 @Component({
   selector: 'app-onibus-listagem',
   templateUrl: './onibus-listagem.component.html',
@@ -22,9 +21,8 @@ export class OnibusListagemComponent implements OnInit {
   }
 
   public buscarItens(onibusNome?: string){
-    let onibus = new ItemOnibusRequestModel(this.onibusNome); 
        
-    this.onibusListagemService.buscarOnibusListagem(onibus)
+    this.onibusListagemService.buscarOnibusListagem(onibusNome)
         .subscribe( 
             res => {                         
                 this.onibusItens = res;
